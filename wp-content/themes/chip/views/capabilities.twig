@@ -1,0 +1,58 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+	{% set heading = page.meta('heading') %}
+	{% set text = page.meta('text') %}
+
+	{% set grid = page.meta('specialisms') %}
+
+	<div class="capabilities">
+
+		<img class="vso" src="{{ theme.link }}/images/vso.png">
+
+		<div class="wrapper-large">
+
+			<div class="capabilities__inner">
+
+				<div class="capabilities__col-1">
+					<div class="one">
+						{{ heading }}
+					</div>
+
+					<div class="two">
+						<img class="vso_m" src="{{ theme.link }}/images/vso_m.png">
+						<div>
+							{{ text }}
+						</div>
+					</div>
+
+				</div>
+
+				<div class="capabilities__col-2">
+					<div class="capabilities__grid">
+						{% for item_outer in grid %}
+
+							<div class="capabilities__grid--column">
+								{{item_outer.specialism_heading}}
+								<ul>
+									{% for item_inner in item_outer.specialism_bullets %}
+										<li>{{ item_inner.bullets }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+
+						{% endfor %}
+
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+{% endblock %}

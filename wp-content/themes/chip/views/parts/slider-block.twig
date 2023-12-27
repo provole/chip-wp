@@ -1,0 +1,29 @@
+{% set slide = fn('get_field', 'slide' ) %}
+
+<div class="slider-block">
+	<div class="slider-block__inner">
+		<div class="slider-wrapper">
+			{% for index, item in slide %}
+				<div class="slider-slide" style="background-image: url('{{ item.background_image.url }}'); background-color: {{ item.background_colour }}">
+					<div class="slider-flex">
+						<div class="col-1">
+							<h2>{{ item.madness_text }}</h2>
+						</div>
+						<div class="col-2">
+							<h2>{{ item.method_text }}</h2>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="arrow">
+			<img src="{{ theme.link }}/images/chevron-down.png" alt="chevron-down">
+		</div>
+
+		<div class="arrow-wrapper" style="text-align: center;">
+			<div class="prev"></div>
+			<div class="next"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+{% set backgroundImage = fn('get_field', 'background_image') %}
+{% set mobileImage = fn('get_field', 'mobile_image') %}
+{% set backgroundColour = fn('get_field', 'background_colour') %}
+
+{% set text = fn('get_field', 'text') %}
+
+{% set button = fn('get_field', 'button') %}
+{% set buttonPosition = fn('get_field', 'button_position') %}
+
+
+<div class="text-and-background" style="background-image: url('{{ backgroundImage.url }}'); background-color: {{ backgroundColour }} ">
+	<div class="text-and-background__mobile-image">
+		<img src="{{ mobileImage.url }}">	
+	</div>
+	<div class="wrapper-large">
+		
+		<div>
+			{{ text }}
+		</div>
+		
+		{% if button %}
+		<div class="button button-{{ buttonPosition }}">
+			<a href="{{ button.url }}">{{ button.title }}</a>
+		</div>
+		{% endif %}
+	</div>
+
+</div>

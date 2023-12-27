@@ -1,0 +1,26 @@
+{% set containerWidth = fn('get_field', 'container_width') %} 
+{% set backgroundImageDesktop = fn('get_field', 'background_image') %}
+{% set backgroundImageMobile = fn('get_field', 'background_image_mobile') %}
+{% set backgroundColour = fn('get_field', 'background_colour') %}
+
+{% set text = fn('get_field', 'text') %}
+
+{% set image = fn('get_field', 'image') %}
+{% set button = fn('get_field', 'button') %}
+{% set buttonPosition = fn('get_field', 'button_position') %}
+
+<div class="text-content {% if backgroundImageMobile %}mob-img{% endif %}" style="background-image: url('{{ backgroundImageDesktop.url }}'); background-color: {{ backgroundColour }} ">
+    {% if backgroundImageMobile %}
+        <div class="mobile-image" style="background-image: url('{{ backgroundImageMobile.url }}');"></div>
+    {% endif %}
+
+	<div class="wrapper-{{ containerWidth }}">
+		{{ text }}
+
+		{% if button %}
+            <div class="button button-{{ buttonPosition }}">
+                <a href="{{ button.url }}">{{ button.title }}</a>
+            </div>
+		{% endif %}
+	</div>
+</div>

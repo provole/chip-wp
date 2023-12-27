@@ -1,0 +1,38 @@
+{% set containerWidth = fn('get_field', 'container_width') %}
+{% set rows = fn('get_field', 'rows') %}
+
+<div class="general-columns-block">
+    <div class="wrapper-large">
+        {% for row in rows %}
+            {% set columnsCount = row.columns|length %}
+
+            <div class="row">
+                {% for column in row.columns %}
+                    <div class="column column--width-1/{{ columnsCount }}" >
+                        {% if column.background_image.url or column.background_colour %}
+                            <div class="background-image-or-color" style="background-image: url('{{ column.background_image.url }}'); background-color: {{ column.background_colour }}; opacity: {{ column.background_opacity }};"></div>
+                        {% endif %}
+
+                        {% if column.gradient_colour and column.gradient_direction %}
+                            <div class="gradient-background" style="--gradient-colour: {{ column.gradient_colour }}; --gradient-direction: {{ column.gradient_direction }};"></div>
+                        {% endif %}
+
+                        <div class="content">
+                            {% if column.text %}
+                                <div>
+                                    {{ column.text }}
+                                </div>
+                            {% endif %}
+
+                            {% if column.button %}
+                                <div class="button button-{{ column.button_position }}">
+                                    <a href="{{ column.button.url }}">{{ column.button.title }}</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

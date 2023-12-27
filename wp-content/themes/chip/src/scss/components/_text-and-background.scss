@@ -1,0 +1,67 @@
+.text-and-background {
+    min-height: 740px;
+
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 991px) {
+        min-height: unset;
+        display: block;
+        background-image: none !important;
+    }
+
+    div[class^="wrapper"] {
+        width: 100%;
+    }
+
+    &__mobile-image {
+        display: none;
+
+        @media screen and (max-width: 991px) {
+            display: block;
+        }
+
+        img {
+            margin: 0 auto;
+            min-width: 100%;
+        }
+    }
+
+    .wrapper-large {
+        & > div {
+            width: 30%;
+            margin-left: auto;
+
+            @media screen and (max-width: 991px) {
+                width: 100%;
+                margin: auto;
+                padding: 40px 0 30px;
+            }
+
+            h2 {
+                font-family: $AlgaRegular;
+                font-weight: 400;
+                color: #4a4c61;
+
+                @media screen and (max-width: 991px) {
+                    font-size: 32px;
+                    line-height: 36px;
+                }
+            }
+        }
+
+        .button {
+            a {
+                letter-spacing: 6px;
+            }
+        }
+    }
+}

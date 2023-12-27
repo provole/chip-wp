@@ -1,0 +1,51 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+	{% set backgroundImage = page.get_field('background_image') %}
+	{% set backgroundColour = page.get_field('background_colour') %}
+	{% set text = page.get_field('text') %}
+
+	{% set button = page.get_field('button')%}
+	{% set buttonBackgroundColour = page.get_field('button_background_colour') %}
+	{% set buttonPosition = page.get_field('button_position') %}
+
+	<div class="posts-archive" style="background-image: url('{{ backgroundImage.url }}'); background-color: {{ backgroundColour }};">
+
+		<div class="wrapper-large">
+
+			<div class="posts-archive__header">
+				<h1>{{ page.title }}</h1>
+				<div class="posts-archive__header-line"></div>
+			</div>
+
+			<div class="posts-archive__container">
+				<div class="posts-archive__container-text">
+					<p>
+						{{ text }}
+					</p>
+					{% if button %}
+						<div class="button button-{{ buttonPosition }}">
+							<a style="background-color: {{ buttonBackgroundColour }}" href="{{ button.url }}">{{ button.title }}</a>
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="posts-archive__container-posts">
+					<div class="post-wrapper">
+						{% for post in posts %}
+							<div class="post">
+								<div class="post__inner">
+									<a href="{{ post.link }}"><img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.alt }}"></a>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}

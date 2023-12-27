@@ -1,0 +1,23 @@
+.text-underline {
+    text-decoration: underline;
+
+    &--green {
+        text-decoration-color: $pastelGreen;
+    }
+
+    &--white {
+        text-decoration-color: $white;
+    }
+
+    &--black {
+        text-decoration-color: $black;
+    }
+
+    &--darkslate {
+        text-decoration-color: $darkslate;
+    }
+
+    &-red {
+        text-decoration-color: $maroon;
+    }
+}

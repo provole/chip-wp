@@ -1,0 +1,34 @@
+<section class="home-banner">
+	{% set sections = fn('get_field', 'section' ) %}
+	{% set heading = fn('get_field', 'heading' ) %}
+	<div class="heading">
+		{{ heading }}
+	</div>
+	{% for index, item in sections %}
+
+		<div class="section section-{{index + 1}}" style="background-image:url( {{ item.background.url }} ); background-size: cover;">
+			<div class="inner">
+				<div class="icon" style="top: {{ item['icon-settings']['x-position'] }}; left: {{ item['icon-settings']['y-position'] }};">
+					{% if item['icon-settings'].width and item['icon-settings'].height is same as(false) %}
+						<img style="transform: rotate({{ item['icon-settings']['rotation'] }}deg);" width="{{ item['icon-settings'].width ? item['icon-settings'].width : item.icon.width }}" src="{{ item.icon.url }}" alt="icon">
+					{% elseif item['icon-settings'].height and item['icon-settings'].width is same as(false) %}
+						<img style="transform: rotate({{ item['icon-settings']['rotation'] }}deg);" width="{{ item['icon-settings'].width ? item['icon-settings'].width : item.icon.width }}" src="{{ item.icon.url }}" alt="icon">
+					{% else %}
+						<img style="transform: rotate({{ item['icon-settings']['rotation'] }}deg);" width="{{ item['icon-settings'].width ? item['icon-settings'].width : item.icon.width }}" height="{{ item['icon-settings'].height ? item['icon-settings'].height : item.icon.height }}" src="{{ item.icon.url }}" alt="icon">
+					{% endif %}
+					<div class="text" style="display: none;">
+						{{ item.header }}
+						<span class="shape"></span>
+						{{ item.body }}
+					</div>
+				</div>
+
+				{# {{dump(item)}} #}
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="arrow">
+		<img src="{{ theme.link }}/images/chevron-down.png" alt="chevron-down">
+	</div>
+</section>

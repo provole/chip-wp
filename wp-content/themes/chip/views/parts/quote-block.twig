@@ -1,0 +1,21 @@
+{% set text = fn('get_field', 'text') %}
+{% set imgDesktop = fn('get_field', 'image_desktop') %}
+{% set imgMobile = fn('get_field', 'image_mobile') %}
+
+
+<div class="quote-block">
+
+	<div class="quote-block__inner">
+		<div class="quote-block__inner--col-1">
+			<div>
+				{{ text }}
+			</div>
+		</div>
+		<div class="quote-block__inner--col-2">
+            <img class="quote-block-image-desktop" src="{{ imgDesktop.url }}" alt="" />
+
+            <img class="quote-block-image-mobile" src="{{ imgMobile.url }}" alt="">
+		</div>
+	</div>
+
+</div>

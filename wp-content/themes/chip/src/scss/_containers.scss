@@ -1,0 +1,37 @@
+.wrapper {
+    width: 1272px;
+    margin: 0 auto;
+    max-width: 100%;
+
+    @media (max-width: 1272px) {
+        padding: 0 40px;
+    }
+
+    &-large {
+        margin: 0 auto;
+        max-width: 1399px;
+        @media (max-width: 1399px) {
+            padding: 0 40px;
+        }
+    }
+
+    &-medium {
+        margin: 0 auto;
+        width: 1078px;
+
+        @media (max-width: 1078px) {
+            width: 100%;
+            padding: 0 40px;
+        }
+    }
+
+    &-small {
+        margin: 0 auto;
+        width: 926px;
+
+        @media (max-width: 926px) {
+            width: 100%;
+            padding: 0 40px;
+        }
+    }
+}

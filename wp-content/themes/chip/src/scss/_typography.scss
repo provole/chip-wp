@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "made_future_xlight";
+    src: url("../../fonts/made_future_x_light_personal_use-webfont.woff2")
+            format("woff2"),
+        url("../../fonts/made_future_x_light_personal_use-webfont.woff")
+            format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 20px 0;
+}
+
+p {
+    font-size: 18.75px;
+    line-height: 22.92px;
+    letter-spacing: 0.6px;
+}
+
+h1 {
+    font-size: 35.79px;
+    line-height: 59.65px;
+    letter-spacing: 1.855px;
+
+    @media (max-width: 829px) {
+        font-size: clamp(
+            24px,
+            calc(1.5rem + (35.79 - 24) * ((100vw - 320px) / (829 - 320))),
+            35.79px
+        );
+        /* Note: The calc base value (1.5rem) MUST be stated in REM to maintain accessibility */
+        /* Where: calc = min_font_size_in_rem + (max_font_size - min_font_size) * ((100vw - min_viewport_including_px_unit) / (max_viewport - min_viewport)) */
+
+        /* Safari resize fix */
+        min-height: 0vw;
+        line-height: 45.27px;
+    }
+
+    &.large {
+        font-size: 58.33px;
+    }
+}
+
+h2 {
+    font-size: 41.63px;
+    line-height: 45.82px;
+    font-weight: 400;
+    letter-spacing: 1.435px;
+}
+
+h3 {
+    font-family: $AlgaRegular;
+    font-size: 44.58px;
+    line-height: 50px;
+    font-weight: 400;
+
+    strong {
+        font-family: $AlgaRegular;
+        font-weight: 700;
+    }
+}
+
+h4 {
+    font-size: 20.83px;
+    line-height: 17.51px;
+    letter-spacing: 0.7px;
+}
+
+h5 {
+    font-size: 16.68px;
+    line-height: 19.51px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.custom-underline:after {
+    display: inline;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    content: "";
+    background: $pastelGreen;
+    height: 5px;
+    position: absolute;
+
+    @media (max-width: 832px) {
+        height: 4px;
+    }
+}
+
+.letter-spacing {
+    letter-spacing: 3px;
+}

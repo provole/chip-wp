@@ -1,0 +1,60 @@
+@import "~normalize.css";
+@import "~animate.css";
+
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+@import "variables";
+@import "containers";
+@import "typography";
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-family: $madeFutureLight;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 5px;
+}
+
+#fb-root {
+    display: none;
+}
+
+.grecaptcha-badge {
+    display: none !important;
+}
+
+@import "global";
+
+// components
+@import "components/*";
+
+//pages
+@import "pages/posts-archive";
+@import "pages/capabilities";
+@import "pages/single";
+@import "pages/contact-us";
+@import "pages/404";

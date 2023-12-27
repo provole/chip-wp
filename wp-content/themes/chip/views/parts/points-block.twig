@@ -1,0 +1,28 @@
+{% set backgroundColour = fn('get_field', 'background_colour') %}	
+{% set heading = fn('get_field', 'heading') %}
+{% set points = fn('get_field', 'points') %}
+
+<section class="points" style="background-color: {{ backgroundColour }};">
+	<div class="wrapper">
+		<div class="heading">{{ heading }}</div>
+
+		<div class="points-container">
+			{% for index, item in points %}
+				<div class="point">
+					<h3>{{ item.heading }}</h3>
+					<div class="shape"></div>
+					{{ item.text }}
+				</div>
+			{% endfor %}
+
+		</div>
+	</div>
+
+	<img src="{{ theme.link }}/images/points-line.png" class="line-desktop" alt="point-line">
+
+    <div class="mobile-line-container">
+        <div class="mobile-line-img-wrap">
+            <img src="{{ theme.link }}/images/pink-points-line-mobile.png" alt="point-line">
+        </div>
+    </div>
+</section>

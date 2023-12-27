@@ -1,0 +1,83 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+	{% set backgroundImage = page.get_field('background_image') %}
+	{% set backgroundColour = page.get_field('background_colour') %}
+
+	{% set CallUs = page.get_field('contact_information').call_us %}
+	{% set CallUsText = page.get_field('contact_information').call_us_text %}
+	{% set EmailUs = page.get_field('contact_information').email_us %}
+
+	{% set AdressLine1 = page.get_field('company_location').address_line_1 %}
+	{% set AdressLine2 = page.get_field('company_location').address_line_2 %}
+	{% set City = page.get_field('company_location').city %}
+	{% set PostCode = page.get_field('company_location').postcode %}
+
+
+	{% set ContactFormID = page.get_field('contact_form_id') %}
+
+
+	<div class="contact-us" style="background-image: url('{{ backgroundImage.url }}'); background-color: {{ backgroundColour }};">
+		<div class="wrapper-medium">
+			<div class="contact-us__inner">
+				<div class="contact-us__col-1">
+					<div>
+						<div class="call_us">
+							<h1 class="large">
+								Call Us
+								<br/>
+								<a href="tel:{{ CallUs }}">{{ CallUs }}</a>
+							</h1>
+							{{ CallUsText }}
+						</div>
+						<div class="email_us">
+							<h1 class="large">
+								Email Us
+							</h1>
+							<p>
+								<a href="mailto:{{ EmailUs }}">{{ EmailUs }}</a>
+							</p>
+						</div>
+						{% if AdressLine1 %}
+							<div class="find_us">
+								<h1 class="large">
+									Find Us
+								</h1>
+								<div>
+									<div class="mapouter">
+										<div class="gmap_canvas">
+											<iframe iwloc width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{ AddressLine1 }} {{ AddressLine2 }}, {{ City }}, {{ PostCode }}&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+											<style>
+												.gmap_canvas {
+													overflow: hidden;
+													background: none !important;
+													height: 500px;
+													width: 100%;
+												}
+											</style>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="contact-us__col-2">
+					<div>
+						<h1 class="large">
+							Request a callback
+						</h1>
+						<div>
+							{% filter shortcodes %}
+								[contact-form-7 id="{{ ContactFormID }}" title="Contact form"]
+							{% endfilter %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+
+	{% set leftArrowColour = page.meta('page_arrows').left_arrow_colour %}
+	{% set rightArrowColour = page.meta('page_arrows').right_arrow_colour %}
+
+	{# The Madness #}
+	{% set themadnessBackgroundImage = page.meta('the_madness').background_image %}
+	{% set themadnessBackgroundColour = page.meta('the_madness').background_colour %}
+	{% set themadnessOverlayImage = page.meta('the_madness').overlay_image %}
+	{% set themadnessOverlayImageMobile = page.meta('the_madness').overlay_image_mobile %}
+	{% set themadnessBorderImage = page.meta('the_madness').border_image %}
+	{% set themadnessHeading = page.meta('the_madness').heading %}
+	{% set themadnessText = page.meta('the_madness').text %}
+	{% set button = page.meta('the_madness').button %}
+	{% set buttonPosition = page.meta('the_madness').button_position %}
+
+	{# The Method #}
+
+	{% set themethodBorderImage = page.meta('the_method').border_image %}
+	{% set themethodBackgroundImage = page.meta('the_method').background_image %}
+	{% set themethodBackgroundColour = page.meta('the_method').background_colour %}
+	{% set themethodHeading = page.meta('the_method').heading %}
+	{% set themethodDescription = page.meta('the_method').description %}
+	{% set themethodGallery = page.meta('the_method').gallery %}
+
+	<div class="single-post">
+		<div>
+			<div class="single-post__slide single-post__madness expanded-div" id="div-1" style="background-image: url('{{ themadnessBackgroundImage.url }}'); background-color: {{ themadnessBackgroundColour }}">
+				<img class="single-post__madness--abs-image" src="{{ themadnessOverlayImage.url }}" alt="">
+				<img class="single-post__madness--abs-image-mobile" src="{{ themadnessOverlayImageMobile.url }}" alt="">
+				<img class="bg_main" src="{{ themadnessBorderImage.url }}" alt="">
+				<div class="method-dividing-line">
+					<img src="{{ theme.link }}/images/single_line_2.png" alt="">
+				</div>
+				<div class="single-post__slide--inner">
+					<div class="column-left">
+						<div></div>
+					</div>
+					<div class="column-right">
+						{{ themadnessHeading }}
+						<div class="diving-line">
+							<img src="{{ theme.link }}/images/single_line.png" alt="">
+						</div>
+						<div class="column-right__content">
+							{{ themadnessText }}
+						</div>
+						{% if button %}
+							<div class="button button-{{ buttonPosition }}">
+								<a href="{{ button.url }}">{{ button.title }}</a>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="side-arrows">
+					<div>
+						<h4 style="color: {{ leftArrowColour }}" class="expansion-btn exp-1">
+							<?xml version='1.0' encoding='iso-8859-1'?><!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><svg fill="{{ leftArrowColour }}" version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 224.008 224.008' style='enable-background:new 0 0 224.008 224.008;' xml:space='preserve'>
+								<g>
+									<g><path d='M197.299,7.933l-85.5,171l-84.9-171c-8.4-16.8-33.6-4.2-25.2,12.6l97.5,195.6c5.3,10.5,20,10.5,25.2,0l98-195.6 c1.1-1.6,1.6-4.2,1.6-6.3C223.999-0.467,203.599-5.167,197.299,7.933z'/></g>
+								</g>
+							</svg>
+							MADNESS</h4>
+						<h4 style="color: {{ rightArrowColour }}" class="expansion-btn exp-2">
+							METHOD<?xml version='1.0' encoding='iso-8859-1'?><!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><svg fill="{{ rightArrowColour }}" version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 224.008 224.008' style='enable-background:new 0 0 224.008 224.008;' xml:space='preserve'>
+								<g>
+									<g><path d='M197.299,7.933l-85.5,171l-84.9-171c-8.4-16.8-33.6-4.2-25.2,12.6l97.5,195.6c5.3,10.5,20,10.5,25.2,0l98-195.6 c1.1-1.6,1.6-4.2,1.6-6.3C223.999-0.467,203.599-5.167,197.299,7.933z'/></g>
+								</g>
+							</svg>
+						</h4>
+					</div>
+				</div>
+				<div class="side-arrows-mobile-1">
+					<div>
+						<h4 class="expansion-btn exp-2"></h4>
+					</div>
+				</div>
+			</div>
+			<div class="single-post__slide  single-post__method compressed-div" id="div-2" style="background-image: url('{{ themethodBackgroundImage.url }}'); background-color: {{ themethodBackgroundColour }}">
+				<img class="bg_main" src="{{ themethodBorderImage.url }}" alt="">
+					<div class="single-post__slide--inner">
+
+						<div class="column-left">
+							{{ themethodHeading}}
+							<div class="dividing_line"></div>
+							<div>
+								<div class="post__content">
+									{{ themethodDescription }}
+								</div>
+							</div>
+						</div>
+						<div class="column-right">
+							<div>
+
+								<div class="bottlesWrapper"></div>
+								<div class="thumbs">
+									{% for item in themethodGallery %}
+										<div>
+											<img src="{{ item.url }}" class="gallery__img {{ photo_size }}" alt="{{ item.alt }}"></div>
+										{% endfor %}
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="side-arrows-mobile-2">
+							<div>
+								<h4 class="expansion-btn exp-1"></h4>
+							</div>
+						</div>
+					</div>
+
+					<div class="posts-navigation">
+						<div class="post-prev">
+							<a style="color: {{ leftArrowColour }}" href="{{ next.link }}">
+								<?xml version='1.0' encoding='iso-8859-1'?><!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><svg fill="{{ leftArrowColour }}" version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 224.008 224.008' style='enable-background:new 0 0 224.008 224.008;' xml:space='preserve'>
+									<g>
+										<g><path d='M197.299,7.933l-85.5,171l-84.9-171c-8.4-16.8-33.6-4.2-25.2,12.6l97.5,195.6c5.3,10.5,20,10.5,25.2,0l98-195.6 c1.1-1.6,1.6-4.2,1.6-6.3C223.999-0.467,203.599-5.167,197.299,7.933z'/></g>
+									</g>
+								</svg>Previous</a>
+						</div>
+
+						<div class="post-next">
+							<a style="color: {{ rightArrowColour }}" href="{{ prev.link }}">Next<?xml version='1.0' encoding='iso-8859-1'?><!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><svg fill="{{ rightArrowColour }}" version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 224.008 224.008' style='enable-background:new 0 0 224.008 224.008;' xml:space='preserve'>
+									<g>
+										<g><path d='M197.299,7.933l-85.5,171l-84.9-171c-8.4-16.8-33.6-4.2-25.2,12.6l97.5,195.6c5.3,10.5,20,10.5,25.2,0l98-195.6 c1.1-1.6,1.6-4.2,1.6-6.3C223.999-0.467,203.599-5.167,197.299,7.933z'/></g>
+									</g>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		{% endblock %}

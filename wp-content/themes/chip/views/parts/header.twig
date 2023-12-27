@@ -1,0 +1,85 @@
+{% set headerColour = page.get_field('header_customisation').navigation_links_colour %}
+{% set headerLogo = page.get_field('header_customisation').logo %}
+{% set headerBackgroundColour = page.get_field('header_customisation').scroll_background %}
+{% set scrollHeaderColour = page.get_field('header_customisation').scroll_navigation_links_colour %}
+{% set scrollLogo = page.get_field('header_customisation').scroll_logo %}
+{% set borderBottom = page.get_field('header_customisation').border_bottom %}
+{% set borderColour = page.get_field('header_customisation').border_colour %}
+
+
+{% set themethodNavigationLinkColour = page.meta('the_method').navigation_link_colour %}
+
+{% if optionsPage %}
+	{% set headerColour =  fn('get_field', 'header_customisation', 'option').navigation_links_colour %}
+	{% set headerLogo = fn('get_field', 'header_customisation', 'option').logo %}
+	{% set headerBackgroundColour = fn('get_field', 'header_customisation', 'option').scroll_background %}
+	{% set scrollHeaderColour = fn('get_field', 'header_customisation', 'option').scroll_navigation_links_colour %}
+	{% set scrollLogo = fn('get_field', 'header_customisation', 'option').scroll_logo %}
+	{% set borderBottom = fn('get_field', 'header_customisation', 'option').border_bottom %}
+	{% set borderColour = fn('get_field', 'header_customisation', 'option').border_colour %}
+{% endif %}
+
+<header>
+	<div class="inner">
+		<nav role="navigation">
+			<div class="burger-nav">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+			<ul>
+				{% for item in main_menu.items %}
+					<li>
+						<a class="{{ item.class }}" href="{{ item.url }}" target="{{ item.target }}" style="color: {{ headerColour }}">{{ item.name | upper }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+
+		<div class="logo">
+			<a href="{{ site.link }}">
+				{% if headerLogo and scrollLogo %}
+					<img class="header-logo" src="{{ headerLogo.url }}" alt="Logo">
+					<img class="scrolled-logo" src="{{ scrollLogo.url }}" alt="Logo">
+				{% elseif headerLogo %}
+					<img class="header-logo" src="{{ headerLogo.url }}" alt="Logo">
+					<img class="scrolled-logo" src="{{ headerLogo.url }}" alt="Logo">
+				{% elseif scrollLogo %}
+					<img class="header-logo" src="{{ theme.link }}/images/logo_white@2x.png" alt="Logo">
+					<img class="scrolled-logo" src="{{ scrollLogo.url }}" alt="Logo">
+				{% else %}
+					<img class="header-default-logo" src="{{ theme.link }}/images/logo_white@2x.png" alt="Logo">
+				{% endif %}
+			</a>
+		</div>
+	</div>
+</header>
+<nav class="mobile-navigation">
+	<span class="close-button">
+		<img src="{{ theme.link }}/images/close.png" alt="close button">
+	</span>
+	<ul>
+		{% for item in main_menu.items %}
+			<li>
+				<a class="{{ item.class }}" href="{{ item.url }}" target="{{ item.target }}">{{ item.name | upper }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</nav>
+<style>
+	.method-nav-color {
+		color: {{themethodNavigationLinkColour}}
+		!important;
+	}
+	.scrolled {
+		background-color: {{headerBackgroundColour}}
+		;
+		border-bottom: {{borderBottom}}
+		solid{{borderColour}};
+	}
+	.scrolled ul li a {
+		color: {{scrollHeaderColour}}
+		!important;
+	}
+</style>

@@ -1,0 +1,32 @@
+{% set footerBackgroundColour = fn('get_field', 'background_colour', 'option') %}
+{% set footerBackgroundImage = fn('get_field', 'background_image', 'option') %}
+{% set footer_text = fn('get_field', 'footer_text', 'option') %}
+{% set footer_privacy = fn('get_field', 'footer_privacy_policy', 'option') %}
+
+<footer class="footer" style="background-image: url('{{ footerBackgroundImage.url }}'); background-color: {{ footerBackgroundColour }}">
+
+    <div class="wrapper">
+        <div class="footer_inner">
+            <div>
+                {{ footer_text }}
+            </div>
+            <div>
+                <div class="footer_col">
+                    <div class="footer_col--links">
+                        <ul>
+                            <li>
+                                <a href="{{ footer_privacy.url }}">{{ footer_privacy.title }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer_col--scroll">
+                        <div id="scroll-top">
+                            <img src="{{ theme.link }}/images/scroll.png" alt="scroll to top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>

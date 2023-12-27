@@ -1,0 +1,35 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+	{% set backgroundImageDesktop = fn('get_field', 'background_image_desktop', 'option') %}
+	{% set backgroundImageMobile = fn('get_field', 'background_image_mobile', 'option') %}
+	{% set backgroundColour = fn('get_field', 'background_colour', 'option') %}
+
+	{% set heading = fn('get_field', 'heading', 'option') %}
+	{% set text =  fn('get_field', 'text', 'option') %}
+
+	<div class="page-404 {% if backgroundImageMobile %}page-404-image-mobile {% endif %}" style="background-color: {{ backgroundColour }};">
+		<div class="wrapper-medium">
+			<div class="page-404__container">
+				<div class="page-404__container--heading">
+					<h1>{{ heading }}</h1>
+					<img src="{{ theme.link }}/images/404.png" alt="">
+				</div>
+				{{ text }}
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.page-404 {
+			background-image: url('{{backgroundImageDesktop.url}}');
+		}
+		@media screen and(max-width: 991px) {
+			.page-404-image-mobile {
+				background-image: url('{{backgroundImageMobile.url}}');
+			}
+		}
+	</style>
+
+{% endblock %}

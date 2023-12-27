@@ -1,0 +1,121 @@
+.two-column-text {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    @media screen and (max-width: 767px) {
+        background-image: none;
+    }
+
+    div[class^="wrapper-"] {
+        height: 100%;
+
+        @media screen and (max-width: 767px) {
+            padding: 0;
+        }
+    }
+
+    .img-wrapper {
+        position: absolute;
+        left: 0;
+        width: 50%;
+        bottom: 85px;
+        &:after {
+            display: inline-block;
+            content: "";
+            border-top: 0.4vw solid #4a4d61;
+            position: absolute;
+            right: -35%;
+            width: 35%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 580px;
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-family: $AlgaRegular;
+            font-weight: 400;
+            color: #ffffff;
+            text-align: left;
+            max-width: 80%;
+
+            @media screen and (max-width: 767px) {
+                font-size: 30px;
+                line-height: 36px;
+                letter-spacing: 2px;
+                max-width: 100%;
+            }
+
+            span {
+                border-bottom: 6px solid $pastelGreen;
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                color: #ffffff;
+                font-size: 20.83px;
+                line-height: 58.33px;
+                text-align: center;
+                letter-spacing: 6px;
+            }
+        }
+    }
+
+    &__col-1 {
+        width: 50%;
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            padding: 60px 30px 40px;
+        }
+    }
+
+    &__col-2 {
+        width: 50%;
+        padding: 0 40px;
+        min-height: 580px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 767px) {
+            display: block;
+            width: 100%;
+            background-color: $pastelGreen;
+            padding: 40px 30px;
+            min-height: unset;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 70px;
+
+            @media screen and (max-width: 767px) {
+                position: relative;
+                bottom: unset;
+            }
+
+            a {
+                letter-spacing: 6px;
+            }
+        }
+    }
+}

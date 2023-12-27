@@ -1,0 +1,87 @@
+.image-with-text {
+    padding: 100px 0 30px;
+
+    @media screen and (max-width: 991px) {
+        padding: 100px 0 40px;
+    }
+
+    &__inner {
+        display: flex;
+
+        @media screen and (max-width: 991px) {
+            flex-direction: column;
+        }
+
+        h3 {
+            font-family: "made_future_xlight";
+            font-size: 37.74px;
+            line-height: 62.91px;
+            color: $darkslate;
+            letter-spacing: 11.1px;
+
+            @media screen and (max-width: 767px) {
+                font-size: 26px;
+                line-height: 40px;
+            }
+        }
+
+        h2 {
+            font-family: $AlgaRegular;
+            font-weight: 400;
+            padding-top: 25px;
+            line-height: 56.82px;
+            color: #4b4c60;
+
+            @media screen and (max-width: 767px) {
+                font-size: 32px;
+                line-height: 45px;
+            }
+        }
+
+        p {
+            @media screen and (max-width: 767px) {
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    &__column-1 {
+        width: 45%;
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            order: 2;
+            padding-top: 10px;
+        }
+
+        & > div {
+            width: 90%;
+
+            @media screen and (max-width: 991px) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__column-2 {
+        width: 55%;
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            order: 1;
+        }
+    }
+
+    .custom-underline {
+        white-space: nowrap;
+
+        &:after {
+            background: $pastelGreen;
+        }
+    }
+}

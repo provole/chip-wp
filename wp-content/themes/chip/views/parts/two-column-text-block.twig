@@ -1,0 +1,36 @@
+{% set text = fn('get_field', 'text') %}
+
+{% set backgroundImage = fn('get_field', 'background_image') %}
+{% set backgroundColour = fn('get_field', 'background_colour') %}
+{% set specialisms = fn('get_field', 'specialisms' ) %}
+
+{% set button = fn('get_field', 'button') %}
+
+<div class="two-column-text" style="background-image: url('{{ backgroundImage.url }}'); background-color: {{ backgroundColour }} ">
+
+	<div class="img-wrapper"><img class="rl" src="{{ theme.link }}/images/rl.png" alt=""></div>
+	<div class="wrapper-medium">
+
+		<div class="two-column-text__inner">
+			<div class="two-column-text__col-1">
+				<div>
+					{{ text }}
+				</div>
+			</div>
+			<div class="two-column-text__col-2">
+				<div>
+					<ul>
+						{% for index, item in specialisms %}
+							<li>{{ item.list }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="button button-center">
+					<a href="{{ button.url }}">{{ button.title }}</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

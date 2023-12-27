@@ -1,0 +1,17 @@
+{
+    "name": "volenangelov/chip",
+    "require": {
+        "timber/timber": "^1.19"
+    },
+    "autoload": {
+        "psr-4": {
+            "Volenangelov\\chip\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Volen Angelov",
+            "email": "volen.angelov@gmail.com"
+        }
+    ]
+}

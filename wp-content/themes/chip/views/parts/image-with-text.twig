@@ -1,0 +1,35 @@
+{% set containerWidth = fn('get_field', 'container_width') %} 
+{% set backgroundImage = fn('get_field', 'background_image') %}
+{% set backgroundColour = fn('get_field', 'background_colour') %}
+
+{% set text = fn('get_field', 'text') %}
+
+{% set image = fn('get_field', 'image') %}
+{% set button = fn('get_field', 'button') %}
+{% set buttonPosition = fn('get_field', 'button_position') %}
+
+<div class="image-with-text" style="background-image: url('{{ backgroundImage.url }}'); background-color: {{ backgroundColour }} ">
+
+    <div class="wrapper-{{ containerWidth }}">
+
+        <div class="image-with-text__inner">
+            <div class="image-with-text__column-1">
+                <div>
+                    {{ text }}
+                </div>
+                {% if cta %}
+                <div class="button button-{{ buttonPosition }}">
+                    <a href="{{ button.url }}">{{ button.title }}</a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="image-with-text__column-2">
+                <div>
+                    <img src="{{ image.url }}" alt="">   
+                </div>
+            </div>
+        </div>
+        
+    </div>    
+
+</div>

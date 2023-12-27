@@ -1,0 +1,13 @@
+<div class="general-media-block">
+    {% if fn('get_field', 'media_type') == 'image' %}
+        {% set image = fn('get_field', 'general_block_image') %}
+
+        <div class="general-media-block__image" style="background-image: url({{ image.url }});"></div>
+    {% else %}
+        {% set video = fn('get_field', 'general_block_video') %}
+
+        <div class="general-media-block__video">
+            <iframe width="100%" height="auto" src="{{ video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+</div>
